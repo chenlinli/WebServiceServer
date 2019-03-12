@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:jaxws="http://cxf.apache.org/jaxws"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+				            http://www.springframework.org/schema/beans/spring-beans.xsd				           
+				            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+		
+		<!-- wbs调用的类 -->		            
+	<bean id="weatherService" class="com.cl.impl.WeatherServiceImpl">	
+	</bean>
+	<!-- 发布服务 --><!-- address:发布出去的路径 -->
+	<jaxws:server address="/webService">
+		<jaxws:serviceBean>
+			<ref bean="weatherService"/>
+		</jaxws:serviceBean>
+	</jaxws:server>				            
+
+</beans>
